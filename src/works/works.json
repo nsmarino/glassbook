@@ -1,0 +1,15 @@
+[
+  {
+    "name":"portfolio",
+    "year": "2020",
+    "description": "Personal portfolio site (this site) built with TypeScript and Gatsby.",
+    "url": "https://nmarino.dev"
+  },
+  {
+    "name":"secondview",
+    "year": "2020",
+    "description": "Detailed analysis of films using a timeline mechanic.",
+    "url": "https://nmarino.dev"
+
+  }
+]
