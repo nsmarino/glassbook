@@ -13,7 +13,7 @@ const BlogPostCard: React.FC<{blogPost: BlogPost, currentTag: string}> = ({
   },
   currentTag 
 }) => {
-  console.log(currentTag)
+
   return (
     <>
     { (tags.includes(currentTag) || currentTag === '' || currentTag === project) &&

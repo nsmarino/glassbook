@@ -50,13 +50,12 @@ const IndexPage: React.FC = () => {
   const blogPosts = blogPostEdges.map(extractNodeFromEdge)
 
   const projectsWithBlogs: ProjectData[] = projects.map(
-    (proj: {name: string}) => {
+    (proj: {name: string, year: string, url:string, description:string}): ProjectData => {
     return {
       ...proj,
       blogs: blogPosts.filter((post: BlogPost) => post.frontmatter.project === proj.name)
   }})
 
-  console.log(projectsWithBlogs)
   return (
     <Layout>
       <SEO title="portfolio" />
@@ -69,7 +68,6 @@ const IndexPage: React.FC = () => {
           />
         )
       }
-
     </Layout>
   )
 }

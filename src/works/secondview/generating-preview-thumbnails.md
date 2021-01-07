@@ -1,6 +1,6 @@
 ---
 project: secondview
-slug: /secondview/post
+slug: /secondview/preview-thumbnails
 title: Generating Preview Thumbnails
 tags: ['ui design', 'ffmpeg']
 
