@@ -1,7 +1,24 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
+
+import Header from './header'
+
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react'
+
+const layoutCSS = css`
+`
 
 const MainLayout: React.FC = ({ children }) => {
+  return (
+  <div css={layoutCSS}>
+    <Header />
+    {children}
+  </div>
+)}
+
+export default MainLayout
+
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -12,15 +29,11 @@ const MainLayout: React.FC = ({ children }) => {
   //   }
   // `)
 
-  return (
-  <div>
-    <header>
-    <Link to="/">portfolio</Link>
-    <Link to="/devlogs">devlogs</Link>
-    <Link to="/about">about</Link>
-    </header>
-    {children}
-  </div>
-)}
-
-export default MainLayout
+//   const Container = (position: string) => (
+//     <div css={{
+//       display: flex,     
+//       flexDirection: ${({ position }) => (position === "top" ? "column" : "row")},
+//       margin: ${({ position }) => (position === "top" ? "40px" : "0")}
+//     }}/>
+//   )
+//  `;

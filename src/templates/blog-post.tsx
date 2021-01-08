@@ -2,7 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import { BlogPost } from '../types'
 
-import MainLayout from '../components/layout'
+import Layout from '../components/layout'
+import BlogContainer from '../components/BlogContainer'
 
 const Template: React.FC<{data: {markdownRemark: BlogPost}}> = (
   { data: {
@@ -12,18 +13,10 @@ const Template: React.FC<{data: {markdownRemark: BlogPost}}> = (
     }
     } 
   }) => {
-console.log(frontmatter)
-  return (
-    <MainLayout>
-      <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </div>
-      { frontmatter.tags.map(tag => <p key={tag}>{tag}</p>)}
-    </MainLayout>
+    return (
+    <Layout>
+      <BlogContainer frontmatter={frontmatter} html={html} />
+    </Layout>
   )
 }
 

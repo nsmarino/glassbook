@@ -4,10 +4,10 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import BlogPostCard from "../components/BlogPostCard"
+import BlogPostCard from "../components/cards/BlogPostCard"
+import TagBrowser from '../components/TagBrowser'
 
 const DevlogsPage: React.FC = () => {
-
   const [selectedTag, setSelectedTag] = useState('')
 
   const {
@@ -40,11 +40,13 @@ const DevlogsPage: React.FC = () => {
   return (
     <Layout>
       <SEO title="devlogs" />
-      <p onClick={() => setSelectedTag('')}>view all</p>
-      <ul>
-        {projectNames.map(proj => <li className="projectName" key={proj} onClick={() => setSelectedTag(proj)}>{proj}</li>)}
-        {tags.map(tag => <li className="tag" key={tag} onClick={() => setSelectedTag(tag)}>{tag}</li>)}
-      </ul>
+
+      <TagBrowser
+        selectedTag={selectedTag}
+        setSelectedTag={setSelectedTag} 
+        projectNames={projectNames} 
+        tags={tags} 
+      />
 
       {blogPostEdges.map((edge: any) => 
         <BlogPostCard 

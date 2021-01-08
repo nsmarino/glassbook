@@ -5,7 +5,7 @@ import { BlogPost, ProjectData } from '../types'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProjectCard from "../components/ProjectCard"
+import ProjectCard from "../components/cards/ProjectCard"
 
 const IndexPage: React.FC = () => {
 

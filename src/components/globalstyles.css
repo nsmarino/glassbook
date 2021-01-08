@@ -1,0 +1,13 @@
+html {
+  font-family: monospace;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  font-size: 100%;
+
+  /* CSS Variables */
+  --border1: 1px solid black;
+  --accentColor: teal;
+  --textColor1: white;
+}

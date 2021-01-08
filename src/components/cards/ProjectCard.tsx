@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { ProjectData } from '../types'
+import { ProjectData } from '../../types'
+
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react'
+import { cardCSS } from '../styles/cards'
 
 const ProjectCard: React.FC<{project: ProjectData}> = ({ 
   project: {
@@ -12,7 +16,7 @@ const ProjectCard: React.FC<{project: ProjectData}> = ({
   } 
 }) => {
   return (
-    <div>
+    <div css={cardCSS}>
       <h2>{name} ({year})</h2>
       <p>{description}</p>
       { blogs.map(b => <Link to={`${b.frontmatter.slug}`} key={b.frontmatter.slug  }>{b.frontmatter.title}</Link>)}
