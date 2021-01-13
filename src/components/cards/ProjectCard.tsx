@@ -4,7 +4,7 @@ import { ProjectData } from '../../types'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import { cardCSS } from '../styles/cards'
+import { block } from '../styles/block'
 
 const ProjectCard: React.FC<{project: ProjectData}> = ({ 
   project: {
@@ -16,11 +16,11 @@ const ProjectCard: React.FC<{project: ProjectData}> = ({
   } 
 }) => {
   return (
-    <div css={cardCSS}>
+    <div css={css`${block}`}>
       <h2>{name} ({year})</h2>
       <p>{description}</p>
       { blogs.map(b => <Link to={`${b.frontmatter.slug}`} key={b.frontmatter.slug  }>{b.frontmatter.title}</Link>)}
-      <img src="https://source.unsplash.com/random/200x200?mountain" alt="unsplash"/>
+      <img src="https://source.unsplash.com/random/200x200" alt="unsplash"/>
     </div>
   )
 }

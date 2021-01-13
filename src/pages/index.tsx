@@ -1,11 +1,14 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { BlogPost, ProjectData } from '../types'
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react'
+
+import { ProjectData, ProjectJSON, BlogPostData } from '../types'
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import ProjectCard from "../components/cards/ProjectCard"
+import ProjectCards from '../components/ProjectCards'
+import { AboutAside } from '../components/About'
 
 const IndexPage: React.FC = () => {
 
@@ -38,37 +41,43 @@ const IndexPage: React.FC = () => {
             project
             tags
           }
-          html
         }
       }
     }
   }`)
 
-  const extractNodeFromEdge = (edge: {node: string}) => edge.node
-
-  const projects = projectInfoEdges.map(extractNodeFromEdge)
-  const blogPosts = blogPostEdges.map(extractNodeFromEdge)
+  const extractNodeFromEdge = (edge: any) => edge.node
+  const projects: ProjectJSON[] = projectInfoEdges.map(extractNodeFromEdge)
+  const blogPosts: BlogPostData[] = blogPostEdges.map(extractNodeFromEdge)
 
   const projectsWithBlogs: ProjectData[] = projects.map(
-    (proj: {name: string, year: string, url:string, description:string}): ProjectData => {
+    (proj): ProjectData => {
     return {
       ...proj,
-      blogs: blogPosts.filter((post: BlogPost) => post.frontmatter.project === proj.name)
+      blogs: blogPosts.filter((post) => post.frontmatter.project === proj.name)
   }})
 
   return (
-    <Layout>
-      <SEO title="portfolio" />
-
-      { projectsWithBlogs.map(
-        proj => 
-        <ProjectCard 
-          project={proj} 
-          key={proj.name} 
-          />
-        )
+  <Layout title="portfolio">
+    <div css={css`
+      display: flex;
+      justify-content: center;
+      main {
+        flex-basis: 66.66%;
       }
-    </Layout>
+      aside {
+        flex-basis: 33.33%;
+      }
+      @media only screen and (max-width: 800px) {
+        main {
+          flex-basis: 90%;
+        }
+      }      
+    `}>
+      <AboutAside />
+      <ProjectCards projects={projectsWithBlogs} />
+    </div>
+  </Layout>
   )
 }
 

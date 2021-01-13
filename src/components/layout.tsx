@@ -3,18 +3,15 @@ import { Link } from "gatsby"
 
 import Header from './header'
 
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react'
+import SEO from './seo'
 
-const layoutCSS = css`
-`
-
-const MainLayout: React.FC = ({ children }) => {
+const MainLayout: React.FC<{title:string}> = ({ children, title }) => {
   return (
-  <div css={layoutCSS}>
+  <>
     <Header />
+    <SEO title={title} />
     {children}
-  </div>
+  </>
 )}
 
 export default MainLayout
@@ -37,3 +34,4 @@ export default MainLayout
 //     }}/>
 //   )
 //  `;
+

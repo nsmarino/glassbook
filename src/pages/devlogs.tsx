@@ -3,9 +3,10 @@ import { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import BlogPostCard from "../components/cards/BlogPostCard"
 import TagBrowser from '../components/TagBrowser'
+
+import { BlogPostData } from '../types'
+import BlogCards from "../components/BlogCards"
 
 const DevlogsPage: React.FC = () => {
   const [selectedTag, setSelectedTag] = useState('')
@@ -36,11 +37,12 @@ const DevlogsPage: React.FC = () => {
   }
   const projectNames = mergeDedupe(blogPostEdges.map((edge:any) => edge.node.frontmatter.project))
   const tags = mergeDedupe(blogPostEdges.map((edge: any) => edge.node.frontmatter.tags))
-
+  
+  const extractNodeFromEdge = (edge: any) => edge.node
+  const blogPosts: BlogPostData[] = blogPostEdges.map(extractNodeFromEdge)
+  
   return (
-    <Layout>
-      <SEO title="devlogs" />
-
+    <Layout title="devlogs">
       <TagBrowser
         selectedTag={selectedTag}
         setSelectedTag={setSelectedTag} 
@@ -48,13 +50,7 @@ const DevlogsPage: React.FC = () => {
         tags={tags} 
       />
 
-      {blogPostEdges.map((edge: any) => 
-        <BlogPostCard 
-          blogPost={edge.node}
-          currentTag={selectedTag} 
-          key={edge.node.frontmatter.slug}
-        /> 
-      )}
+      <BlogCards blogPosts={blogPosts} currentTag={selectedTag} />
 
     </Layout>
   )

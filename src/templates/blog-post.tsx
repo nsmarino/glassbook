@@ -14,7 +14,7 @@ const Template: React.FC<{data: {markdownRemark: BlogPost}}> = (
     } 
   }) => {
     return (
-    <Layout>
+    <Layout title={frontmatter.title}>
       <BlogContainer frontmatter={frontmatter} html={html} />
     </Layout>
   )

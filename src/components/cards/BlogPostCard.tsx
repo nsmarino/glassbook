@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { BlogPost } from '../../types'
+import { BlogPostData } from '../../types'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import { cardCSS } from '../styles/cards'
+import { block } from '../styles/block'
 
-const BlogPostCard: React.FC<{blogPost: BlogPost, currentTag: string}> = ({ 
+const BlogPostCard: React.FC<{blogPost: BlogPostData, currentTag: string}> = ({ 
   blogPost: {
     frontmatter: {
       project,
@@ -19,14 +19,14 @@ const BlogPostCard: React.FC<{blogPost: BlogPost, currentTag: string}> = ({
 }) => {
 
   return (
-    <div css={cardCSS}>
+    <>
     { (tags.includes(currentTag) || currentTag === '' || currentTag === project) &&
-    <div>
+    <div css={css`${block}`}>
       <h2><Link to={`${slug}`}>{title}</Link></h2>
       <p>{project}</p>
     </div>
     }
-    </div>
+    </>
   )
 }
 

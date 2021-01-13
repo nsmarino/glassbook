@@ -13,5 +13,21 @@ export interface ProjectData {
   year: string
   description: string
   url: string
-  blogs: BlogPost[]
+  blogs: BlogPostData[]
+}
+
+export interface ProjectJSON {
+  name: string
+  year: string
+  description: string
+  url: string
+}
+
+export interface BlogPostData {
+  frontmatter: {
+    project: string
+    slug: number
+    title: string
+    tags: string[]
+  }
 }

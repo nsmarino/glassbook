@@ -1,6 +1,10 @@
 import React from 'react'
 import { Dispatch, SetStateAction } from "react";
 
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react'
+import {block} from './styles/block'
+
 interface IProps {
   selectedTag: string;
   setSelectedTag: Dispatch<SetStateAction<string>>;
@@ -14,13 +18,15 @@ const TagBrowser: React.FC<IProps> = ({
   projectNames, 
   tags }) => {
   return (
-    <>
+    <aside css={css`
+      ${block}
+    `}>
       <p onClick={() => setSelectedTag('')}>view all</p>
       <ul>
         {projectNames.map(proj => <li className="projectName" key={proj} onClick={() => setSelectedTag(proj)}>{proj}</li>)}
         {tags.map(tag => <li className="tag" key={tag} onClick={() => setSelectedTag(tag)}>{tag}</li>)}
       </ul>
-    </>
+    </aside>
   )
 }
 
