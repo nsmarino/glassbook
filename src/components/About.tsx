@@ -8,17 +8,112 @@ const AboutContent: React.FC = () => {
     <>
       <h1>Nicholas Marino</h1>
       <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
+      <p>Good looking and NICE too</p>
     </>
   )
 }
 
 export const AboutAside: React.FC = () => {
   return (
-  <aside css={css`
+  <aside 
+    css={css`
     ${block}
-    @media only screen and (max-width: 800px) {
-        display: none;
-    } 
+    height: min-content;
   `}>
     <AboutContent />
     </aside>

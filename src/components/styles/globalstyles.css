@@ -1,0 +1,56 @@
+html {
+  font-family: monospace;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  font-size: 100%;
+
+/* CSS Variables */
+  /* Colors */
+  /* --bg: linear-gradient(#fef, #eee); */
+  --bg: teal;
+  --accentColor: teal;
+  --cardColor: rgba(20,20,20, 1);
+  --boxShadow: 5px 5px 35px rgba(255,255,255,0.9);
+  --borderRadius: 0px;
+
+  /* Borders */
+  --blockBorder: 0px solid red;
+  --inlineBorder: 1px solid black;
+
+  /* Spacing */
+  --blockMargin: 0rem;
+  --blockPadding: 0rem;
+
+  /* Fonts */
+  --bodyFont: monospace;
+  --fontColor: white;
+  --bodyFontSize: 150%;
+  --headlineFontSize: 225%;
+  --lineHeight: 1.7;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fontColor);
+  height: 100vh;
+}
+
+h1,h2 {
+  font-size: var(--headlineFontSize);
+  margin: 0;
+}
+p {
+  font-size: var(--bodyFontSize);
+  margin: 0;
+}

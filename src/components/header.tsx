@@ -5,17 +5,38 @@ import { Link } from "gatsby"
 import { css, jsx } from '@emotion/react'
 
 const headerCSS = css`
-  display: flex;
-  justify-content: center;
-  position: sticky;
-  top: 1rem;
-  z-index: 100;
+position: fixed;
+width: 100%;
+top: 1rem;
+z-index: 100;
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    display: inline;
+    margin: var(--blockMargin);
+    padding: 0;
+    justify-self: start;
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+  }
+  @media only screen and (min-width: 800px) {
+    h1 {display: none;}
+    .aboutLink {
+      display: none;
+    }
+  } 
 `
 
 const Header: React.FC = () => {
   return (
     <header css={headerCSS}>
-    <nav> 
+    <nav>
+      <h1><Link to="/">nmarino</Link></h1>
       <ul css={css`
         list-style-type: none;
         margin: 0;
@@ -25,11 +46,6 @@ const Header: React.FC = () => {
         li {
           margin: 1rem;
         }
-        @media only screen and (min-width: 800px) {
-          .aboutLink {
-            display: none;
-          }
-        } 
       `}>
         <li>
         <Link to="/"><button>portfolio</button></Link>

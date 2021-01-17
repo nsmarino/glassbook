@@ -12,7 +12,9 @@ interface CardsCompProps {
 
 const ProjectCards: React.FC<CardsCompProps> = ( { projects }) => {
   return (
-  <main css={css`${containerCSS}`}>
+  <main css={css`
+    ${containerCSS}
+  `}>
     {projects.map(project => <ProjectCard project={project} key={project.name} />
     )}
   </main>

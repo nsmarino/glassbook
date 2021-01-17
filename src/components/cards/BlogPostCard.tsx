@@ -21,7 +21,10 @@ const BlogPostCard: React.FC<{blogPost: BlogPostData, currentTag: string}> = ({
   return (
     <>
     { (tags.includes(currentTag) || currentTag === '' || currentTag === project) &&
-    <div css={css`${block}`}>
+    <div css={css`
+      ${block}
+      min-height: 10rem;
+    `}>
       <h2><Link to={`${slug}`}>{title}</Link></h2>
       <p>{project}</p>
     </div>

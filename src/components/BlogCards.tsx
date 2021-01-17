@@ -13,7 +13,11 @@ interface CardsCompProps {
 
 const BlogCards: React.FC<CardsCompProps> = ( { blogPosts, currentTag }) => {
   return (
-  <div css={css`${containerCSS}`}>
+  <main css={css`
+    ${containerCSS}
+    height: 100vh; 
+    background: grey;
+    `}>
     {blogPosts.map(blogPost => 
       <BlogPostCard 
         blogPost={blogPost} 
@@ -21,7 +25,7 @@ const BlogCards: React.FC<CardsCompProps> = ( { blogPosts, currentTag }) => {
         key={blogPost.frontmatter.title} 
       />
     )}
-  </div>
+  </main>
   )
 }
 

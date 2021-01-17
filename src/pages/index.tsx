@@ -62,6 +62,23 @@ const IndexPage: React.FC = () => {
     <div css={css`
       display: flex;
       justify-content: center;
+
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      main, aside {
+        overflow: auto;
+        height: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      main::-webkit-scrollbar,
+      aside::-webkit-scrollbar {
+        display: none;
+      }
+  
+
       main {
         flex-basis: 66.66%;
       }
@@ -69,8 +86,11 @@ const IndexPage: React.FC = () => {
         flex-basis: 33.33%;
       }
       @media only screen and (max-width: 800px) {
+        aside {
+          display: none;
+        }
         main {
-          flex-basis: 90%;
+          flex-basis: 100%;
         }
       }      
     `}>
