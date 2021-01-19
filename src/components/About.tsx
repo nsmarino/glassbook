@@ -1,7 +1,7 @@
 import React from 'react'
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react'
-import { block } from './styles/block'
+import { Sidebar } from './styles/scratch'
 
 const AboutContent: React.FC = () => {
   return (
@@ -112,8 +112,7 @@ export const AboutAside: React.FC = () => {
   return (
   <aside 
     css={css`
-    ${block}
-    height: min-content;
+      ${Sidebar}
   `}>
     <AboutContent />
     </aside>
@@ -123,7 +122,6 @@ export const AboutAside: React.FC = () => {
 export const AboutMain: React.FC = () => {
   return (
   <main css={css`
-    ${block}
   `}>
     <AboutContent />
   </main>

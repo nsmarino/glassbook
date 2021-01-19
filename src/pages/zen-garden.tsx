@@ -10,6 +10,7 @@ import { over800, under800 } from '../components/styles/mediaQueries'
 const MainWithFixedAside = `
   main {
     margin-left: 33.33%;
+    min-height: 100vh;
   }
   aside {
     position: fixed;
@@ -53,6 +54,7 @@ const ContentCard = `
   background: darkgreen;
   border: 2px solid white;
   margin: 4rem;
+  padding: 1rem;
   min-height: 10rem;
 `
 
@@ -60,7 +62,10 @@ const RightCard = () => (
   <div css={css`
     ${ContentCard}
   `}>
-    <h1>right</h1>
+    <h1>Content card</h1>
+    <p>Amet enim esse ex fugiat cillum adipisicing voluptate adipisicing laborum labore aliqua. Aute incididunt veniam aute cillum quis pariatur occaecat occaecat reprehenderit cillum quis cupidatat. Tempor esse laborum veniam esse mollit veniam velit ut reprehenderit aliquip enim consequat.
+
+Reprehenderit sit amet commodo do excepteur eiusmod excepteur dolore tempor nisi culpa nisi velit. Voluptate commodo proident nulla Lorem ea voluptate ipsum pariatur velit. Quis exercitation officia sint cupidatat amet quis do nisi elit voluptate cillum cupidatat.</p>
   </div>
 )
 
@@ -123,7 +128,4 @@ export default ZenGarden
 
 // height: auto;
 // overflow: auto;
-// position: fixed;
-
-// No scroll bar:
- 
+// position: fixed; 

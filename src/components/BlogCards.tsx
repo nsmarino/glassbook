@@ -4,7 +4,6 @@ import { css, jsx } from '@emotion/react'
 
 import { BlogPostData } from '../types'
 import BlogPostCard from "./cards/BlogPostCard"
-import { containerCSS } from "./styles/container"
 
 interface CardsCompProps {
   blogPosts: BlogPostData[]
@@ -13,11 +12,7 @@ interface CardsCompProps {
 
 const BlogCards: React.FC<CardsCompProps> = ( { blogPosts, currentTag }) => {
   return (
-  <main css={css`
-    ${containerCSS}
-    height: 100vh; 
-    background: grey;
-    `}>
+  <>
     {blogPosts.map(blogPost => 
       <BlogPostCard 
         blogPost={blogPost} 
@@ -25,7 +20,7 @@ const BlogCards: React.FC<CardsCompProps> = ( { blogPosts, currentTag }) => {
         key={blogPost.frontmatter.title} 
       />
     )}
-  </main>
+  </>
   )
 }
 

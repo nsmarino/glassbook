@@ -1,14 +1,17 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-/** @jsx jsx */
-import { jsx, css } from '@emotion/react'
 
 import { ProjectData, ProjectJSON, BlogPostData } from '../types'
 
 import Layout from "../components/layout"
 import ProjectCards from '../components/ProjectCards'
 import { AboutAside } from '../components/About'
+
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react'
+import { MainWithFixedAside, MainWithNoAside } from '../components/styles/scratch'
+import { over800, under800 } from '../components/styles/mediaQueries'
 
 const IndexPage: React.FC = () => {
 
@@ -60,42 +63,17 @@ const IndexPage: React.FC = () => {
   return (
   <Layout title="portfolio">
     <div css={css`
-      display: flex;
-      justify-content: center;
-
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-      main, aside {
-        overflow: auto;
-        height: auto;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+      ${over800} {
+        ${MainWithFixedAside}
       }
-      main::-webkit-scrollbar,
-      aside::-webkit-scrollbar {
-        display: none;
+      ${under800} {
+        ${MainWithNoAside}
       }
-  
-
-      main {
-        flex-basis: 66.66%;
-      }
-      aside {
-        flex-basis: 33.33%;
-      }
-      @media only screen and (max-width: 800px) {
-        aside {
-          display: none;
-        }
-        main {
-          flex-basis: 100%;
-        }
-      }      
     `}>
       <AboutAside />
-      <ProjectCards projects={projectsWithBlogs} />
+      <main>
+        <ProjectCards projects={projectsWithBlogs} />
+      </main>
     </div>
   </Layout>
   )

@@ -3,50 +3,28 @@ import { Link } from "gatsby"
 
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react'
-
-const headerCSS = css`
-position: fixed;
-width: 100%;
-top: 1rem;
-z-index: 100;
-  nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  h1 {
-    display: inline;
-    margin: var(--blockMargin);
-    padding: 0;
-    justify-self: start;
-    a {
-      color: inherit;
-      text-decoration: inherit;
-    }
-  }
-  @media only screen and (min-width: 800px) {
-    h1 {display: none;}
-    .aboutLink {
-      display: none;
-    }
-  } 
-`
+import { ul } from './styles/scratch'
 
 const Header: React.FC = () => {
   return (
-    <header css={headerCSS}>
-    <nav>
-      <h1><Link to="/">nmarino</Link></h1>
-      <ul css={css`
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-
-        li {
-          margin: 1rem;
+    <header css={css`
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 100;
+        ul {
+          display: flex;
+          border: 1px solid black;
+          justify-content: center;
+          ${ul}
+          button {
+            margin: 0;
+            padding: 0;
+          }
         }
-      `}>
+    `}>
+    <nav>
+      <ul>
         <li>
         <Link to="/"><button>portfolio</button></Link>
         </li>

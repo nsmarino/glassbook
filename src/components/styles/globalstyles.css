@@ -9,8 +9,7 @@ html {
 /* CSS Variables */
   /* Colors */
   /* --bg: linear-gradient(#fef, #eee); */
-  --bg: teal;
-  --accentColor: teal;
+  --bg: white;
   --cardColor: rgba(20,20,20, 1);
   --boxShadow: 5px 5px 35px rgba(255,255,255,0.9);
   --borderRadius: 0px;
@@ -25,15 +24,12 @@ html {
 
   /* Fonts */
   --bodyFont: monospace;
-  --fontColor: white;
+  --fontColor: #222;
   --bodyFontSize: 150%;
   --headlineFontSize: 225%;
   --lineHeight: 1.7;
 }
 
-html {
-  box-sizing: border-box;
-}
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -43,14 +39,4 @@ body {
   padding: 0;
   background: var(--bg);
   color: var(--fontColor);
-  height: 100vh;
-}
-
-h1,h2 {
-  font-size: var(--headlineFontSize);
-  margin: 0;
-}
-p {
-  font-size: var(--bodyFontSize);
-  margin: 0;
 }

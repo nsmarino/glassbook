@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link } from "gatsby"
-
-import Header from './header'
-
 import SEO from './seo'
+
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react'
+import Header from './header'
 
 const MainLayout: React.FC<{title:string}> = ({ children, title }) => {
   return (
   <>
-    <Header />
     <SEO title={title} />
+    <Header />    
     {children}
   </>
 )}

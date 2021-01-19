@@ -4,7 +4,7 @@ import { BlogPostData } from '../../types'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import { block } from '../styles/block'
+import { ContentCard } from '../styles/scratch'
 
 const BlogPostCard: React.FC<{blogPost: BlogPostData, currentTag: string}> = ({ 
   blogPost: {
@@ -22,11 +22,12 @@ const BlogPostCard: React.FC<{blogPost: BlogPostData, currentTag: string}> = ({
     <>
     { (tags.includes(currentTag) || currentTag === '' || currentTag === project) &&
     <div css={css`
-      ${block}
-      min-height: 10rem;
+      ${ContentCard}    
     `}>
       <h2><Link to={`${slug}`}>{title}</Link></h2>
-      <p>{project}</p>
+      <div className="info">
+        <p>{project}</p>
+      </div>
     </div>
     }
     </>
