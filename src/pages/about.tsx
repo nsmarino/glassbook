@@ -1,11 +1,19 @@
 import React from "react"
 
-import Layout from "../components/layout"
-import { AboutMain } from '../components/About'
+import Layout from "../components/Layout"
+import About from '../components/About'
+
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react'
+import { LayoutChild } from "../components/styles/scratch"
 
 const AboutPage = () => (
   <Layout title="about">
-    <AboutMain />
+    <main css={css`
+      ${LayoutChild}
+    `}>
+      <About />
+    </main>
   </Layout>
 )
 

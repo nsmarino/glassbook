@@ -3,7 +3,7 @@ import React from "react"
 import { css, jsx } from '@emotion/react'
 
 import { BlogPostData } from '../types'
-import BlogPostCard from "./cards/BlogPostCard"
+import BlogPostCard from "./BlogPostCard"
 
 interface CardsCompProps {
   blogPosts: BlogPostData[]

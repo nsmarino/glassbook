@@ -3,7 +3,7 @@ import React from "react"
 import { css, jsx } from '@emotion/react'
 
 import { ProjectData } from '../types'
-import ProjectCard from "./cards/ProjectCard"
+import ProjectCard from "./ProjectCard"
 
 interface CardsCompProps {
   projects: ProjectData[]

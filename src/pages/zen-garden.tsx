@@ -1,6 +1,6 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'

@@ -3,15 +3,24 @@ import SEO from './seo'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import Header from './header'
+
+import Header from './Header'
+import Footer from './Footer'
 
 const MainLayout: React.FC<{title:string}> = ({ children, title }) => {
   return (
-  <>
+  <div css={css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  `}>
     <SEO title={title} />
-    <Header />    
+    <Header /> 
     {children}
-  </>
+    <Footer />
+  </div>
 )}
 
 export default MainLayout

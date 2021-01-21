@@ -3,6 +3,7 @@ project: portfolio
 slug: /portfolio/css-system-with-generics
 title: Prototyping Site Design With Emotion JS And Placeholder Elements
 tags: ['css', 'ui design', 'system planning', 'emotion']
+date: '29 January 2021'
 ---
 <!-- 1 -->
 In redesigning this site, I was afforded an opportunity to think more carefully about how to write CSS for a React application. In past projects, I have usually used styled-components to handcraft each element, so as to make them fit the picture I had in my head. This led to a lot of unexpected bugs and unorganized code, and I often had to hunt through different files when I wanted to change or fix something. For this project, I decided instead to try to write a design system that would allow me to prototype different visual ideas easily, then fine tune the appearances of specific elements and components using the principle of composition. I worked with Emotion and Framer Motion to achieve this.

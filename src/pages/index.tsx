@@ -4,14 +4,13 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { ProjectData, ProjectJSON, BlogPostData } from '../types'
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import ProjectCards from '../components/ProjectCards'
-import { AboutAside } from '../components/About'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import { MainWithFixedAside, MainWithNoAside } from '../components/styles/scratch'
-import { over800, under800 } from '../components/styles/mediaQueries'
+import { LayoutChild } from '../components/styles/scratch'
+import { under800 } from "../components/styles/mediaQueries"
 
 const IndexPage: React.FC = () => {
 
@@ -62,19 +61,24 @@ const IndexPage: React.FC = () => {
 
   return (
   <Layout title="portfolio">
-    <div css={css`
-      ${over800} {
-        ${MainWithFixedAside}
+    <main css={css`
+      ${LayoutChild}
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      img {
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        width: 75%;
       }
       ${under800} {
-        ${MainWithNoAside}
+        img {
+          width: 100%;
+        }
       }
     `}>
-      <AboutAside />
-      <main>
         <ProjectCards projects={projectsWithBlogs} />
-      </main>
-    </div>
+    </main>
   </Layout>
   )
 }

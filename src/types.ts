@@ -4,6 +4,7 @@ export interface BlogPost {
     slug: number
     title: string
     tags: string[]
+    date: string
   }
   html: string
 }
@@ -29,5 +30,6 @@ export interface BlogPostData {
     slug: number
     title: string
     tags: string[]
+    date: string
   }
 }

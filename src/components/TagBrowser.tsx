@@ -37,7 +37,7 @@ const TagList: React.FC<TagBrowserProps> = ({
   </ul>
 )
 
-export const TagBrowser: React.FC<TagBrowserProps> = (props) => {
+const TagBrowser: React.FC<TagBrowserProps> = (props) => {
   const screenSize = useWindowSize()
   const [tagVis, setTagVis] = useState(false)
   
@@ -51,15 +51,17 @@ export const TagBrowser: React.FC<TagBrowserProps> = (props) => {
   return (
     <>
       <button 
-        className={`${''===props.selectedTag && 'selected'}`}
-        onClick={() => props.setSelectedTag('')}
-      >all devlogs</button>
-
-    { (screenSize.width <= 800) &&
+        // className={`${''===props.selectedTag && 'selected'}`}
+        // onClick={() => props.setSelectedTag('')}
+      >all</button>
+<hr/>
+    {/* { (screenSize.width <= 800) &&
       <button onClick={() => setTagVis(!tagVis)}>find by tags</button>
     }
 
-    { tagVis && <TagList {...props} />} 
+    { tagVis && <TagList {...props} />}  */}
     </>
   )
 }
+
+export default TagBrowser

@@ -2,19 +2,18 @@ import * as React from "react"
 import { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import BlogCards from "../components/BlogCards"
 
 import { BlogPostData } from '../types'
-import { TagBrowser } from "../components/TagBrowser"
+import TagBrowser from "../components/TagBrowser"
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import { MainWithFixedAside, MainWithAsideOnTop, Sidebar } from '../components/styles/scratch'
+import { LayoutChild } from '../components/styles/scratch'
 import { over800, under800 } from '../components/styles/mediaQueries'
 
-
-const DevlogsPage: React.FC = () => {
+const BlogPage: React.FC = () => {
   const [selectedTag, setSelectedTag] = useState('')
 
   const {
@@ -22,7 +21,7 @@ const DevlogsPage: React.FC = () => {
       edges: blogPostEdges
     }
   } =  useStaticQuery(graphql`
-  query devLogsQuery {
+  query BlogQuery {
     allMarkdownRemark {
       edges {
         node {
@@ -31,6 +30,7 @@ const DevlogsPage: React.FC = () => {
             slug
             title
             tags
+            date
           }
         }
       }
@@ -48,17 +48,10 @@ const DevlogsPage: React.FC = () => {
   const blogPosts: BlogPostData[] = blogPostEdges.map(extractNodeFromEdge)
   
   return (
-  <Layout title="devlogs">
-    <div css={css`
-      ${over800} {
-        ${MainWithFixedAside}
-      }
-      ${under800} {
-        ${MainWithAsideOnTop}
-      }
-    `}>
-      <aside css={css`
-          ${Sidebar}
+  <Layout title="blog">
+      {/* <aside css={css`
+        ${LayoutChild}
+        text-align: right;
       `}>
         <TagBrowser
           className='sidebarTags'
@@ -67,14 +60,14 @@ const DevlogsPage: React.FC = () => {
           projectNames={projectNames} 
           tags={tags} 
         /> 
-      </aside>
-
-      <main>
+      </aside> */}
+      <main css={css`
+        ${LayoutChild}
+      `}>
         <BlogCards blogPosts={blogPosts} currentTag={selectedTag} />
       </main>
-    </div>
   </Layout>
   )
 }
 
-export default DevlogsPage
+export default BlogPage

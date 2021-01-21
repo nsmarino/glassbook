@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { BlogPost } from '../types'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import BlogContainer from '../components/BlogContainer'
 
 const Template: React.FC<{data: {markdownRemark: BlogPost}}> = (
@@ -13,6 +13,7 @@ const Template: React.FC<{data: {markdownRemark: BlogPost}}> = (
     }
     } 
   }) => {
+    console.log(frontmatter)
     return (
     <Layout title={frontmatter.title}>
       <BlogContainer frontmatter={frontmatter} html={html} />
@@ -29,7 +30,9 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
+        project
         tags
+        date
       }
     }
   }

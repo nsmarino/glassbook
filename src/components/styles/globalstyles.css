@@ -1,5 +1,5 @@
 html {
-  font-family: monospace;
+  font-family: Arial;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
@@ -7,27 +7,23 @@ html {
   font-size: 100%;
 
 /* CSS Variables */
+
   /* Colors */
-  /* --bg: linear-gradient(#fef, #eee); */
-  --bg: white;
-  --cardColor: rgba(20,20,20, 1);
+  --bg:hsl(120,50%,90%);
+  --accentColor:#222;
+  --fontColor: #222;
+  --headerFont: 'Inconsolata';
+  --bodyFont: 'Open Sans';
+  --readable: 'Times New Roman', serif;
+
+  /* Fonts */
+  --bodyFontSize: 150%;
+  --headlineFontSize: 225%;
+  
+
   --boxShadow: 5px 5px 35px rgba(255,255,255,0.9);
   --borderRadius: 0px;
 
-  /* Borders */
-  --blockBorder: 0px solid red;
-  --inlineBorder: 1px solid black;
-
-  /* Spacing */
-  --blockMargin: 0rem;
-  --blockPadding: 0rem;
-
-  /* Fonts */
-  --bodyFont: monospace;
-  --fontColor: #222;
-  --bodyFontSize: 150%;
-  --headlineFontSize: 225%;
-  --lineHeight: 1.7;
 }
 
 *, *:before, *:after {
@@ -39,4 +35,13 @@ body {
   padding: 0;
   background: var(--bg);
   color: var(--fontColor);
+  font-family: var(--bodyFont);
+
 }
+
+
+
+/* ::selection {
+  background: white ; 
+  color: black; 
+} */
