@@ -4,21 +4,34 @@ import useWindowSize from '../hooks/useWindowSize'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
+import { ulForLinks } from './styles/scratch';
 
-interface TagBrowserProps {
-  className: 'dropdownTags' | 'sidebarTags';
+interface TagListProps {
   selectedTag: string;
   setSelectedTag: Dispatch<SetStateAction<string>>;
   projectNames: string[];
   tags: string[];
 }
 
-const TagList: React.FC<TagBrowserProps> = ({
+const TagList: React.FC<TagListProps> = ({
   selectedTag,
   setSelectedTag, 
   projectNames, 
   tags }) => (
-  <ul>
+  <ul css={css`
+    ${ulForLinks}
+    flex-wrap: wrap;
+    font-family: var(--headerFont);
+
+    .selected {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  `}>
+    <li 
+      onClick={() => setSelectedTag('')}
+      className={`${''===selectedTag && 'selected'}`}
+    >all</li>
     {projectNames.map(proj => 
       <li 
         className={`projectName ${proj===selectedTag && 'selected'}`}
@@ -37,31 +50,4 @@ const TagList: React.FC<TagBrowserProps> = ({
   </ul>
 )
 
-const TagBrowser: React.FC<TagBrowserProps> = (props) => {
-  const screenSize = useWindowSize()
-  const [tagVis, setTagVis] = useState(false)
-  
-  useEffect(() => {
-    if ( screenSize.width >= 800 ) {
-      setTagVis(true)
-    }
-    else setTagVis(false)  
-  }, [(screenSize.width >= 800)])
-
-  return (
-    <>
-      <button 
-        // className={`${''===props.selectedTag && 'selected'}`}
-        // onClick={() => props.setSelectedTag('')}
-      >all</button>
-<hr/>
-    {/* { (screenSize.width <= 800) &&
-      <button onClick={() => setTagVis(!tagVis)}>find by tags</button>
-    }
-
-    { tagVis && <TagList {...props} />}  */}
-    </>
-  )
-}
-
-export default TagBrowser
+export default TagList

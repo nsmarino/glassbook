@@ -7,7 +7,7 @@ import { jsx, css } from '@emotion/react'
 import Header from './Header'
 import Footer from './Footer'
 
-const MainLayout: React.FC<{title:string}> = ({ children, title }) => {
+const MainLayout: React.FC<{title:string}> = ({ children, title, }) => {
   return (
   <div css={css`
     display: flex;
@@ -17,7 +17,7 @@ const MainLayout: React.FC<{title:string}> = ({ children, title }) => {
     margin-bottom: 3rem;
   `}>
     <SEO title={title} />
-    <Header /> 
+    <Header />
     {children}
     <Footer />
   </div>

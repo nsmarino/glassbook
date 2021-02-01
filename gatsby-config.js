@@ -18,6 +18,21 @@ module.exports = {
         cssPropOptimization: true,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,9 +40,7 @@ module.exports = {
         path: `${__dirname}/src/works`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-remark`,
+    `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

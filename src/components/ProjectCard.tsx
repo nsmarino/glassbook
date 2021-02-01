@@ -15,7 +15,7 @@ const ProjectCard: React.FC<{project: ProjectData}> = ({
   } 
 }) => {
   return (
-      <img src="https://source.unsplash.com/random/600x600" alt="unsplash"/>
+      <img src="https://source.unsplash.com/random/300x300" alt="unsplash"/>
   )
 }
 

@@ -15,6 +15,10 @@ const HeaderStyle = `
     ${Headline}
     margin-top:3rem;
     margin-bottom:0.5rem;
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
   }
   p {
     margin-top: 0;
@@ -22,9 +26,11 @@ const HeaderStyle = `
   }
   ul {
       ${ulForLinks}
+      margin-bottom: 2rem;
   }
   hr {
-    ${Horizontal}  
+    ${Horizontal}
+
   }
 `
 
@@ -40,23 +46,22 @@ const Header: React.FC = () => {
     <header css={css`
       ${HeaderStyle}
     `}>
-      <h1>Nicholas Marino</h1>
+      <h1><Link to="/">Nicholas Marino</Link></h1>
       <p>web developer / creative technologist</p>
     <nav>
       <ul>
       <li>
-        <Link to="/blog" activeStyle={activeLink}>blog</Link>
-        </li>
-        <li>
         <Link to="/" activeStyle={activeLink}>work</Link>
         </li>
-        <li>
+      <li>
+        <Link to="/blog" activeStyle={activeLink}>blog</Link>
+        </li>
+      <li>
         <Link to="/about" activeStyle={activeLink}>about</Link>
         </li>
       </ul>
     </nav>
     <div className="sampleTest"></div>
-    <Browser />
     <hr/>
     </header>
 )}

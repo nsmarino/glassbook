@@ -6,7 +6,7 @@ import Layout from "../components/Layout"
 import BlogCards from "../components/BlogCards"
 
 import { BlogPostData } from '../types'
-import TagBrowser from "../components/TagBrowser"
+import TagList from "../components/TagList"
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
@@ -49,23 +49,20 @@ const BlogPage: React.FC = () => {
   
   return (
   <Layout title="blog">
-      {/* <aside css={css`
-        ${LayoutChild}
-        text-align: right;
-      `}>
-        <TagBrowser
-          className='sidebarTags'
-          selectedTag={selectedTag}
-          setSelectedTag={setSelectedTag} 
-          projectNames={projectNames} 
-          tags={tags} 
-        /> 
-      </aside> */}
-      <main css={css`
-        ${LayoutChild}
-      `}>
-        <BlogCards blogPosts={blogPosts} currentTag={selectedTag} />
-      </main>
+  <aside css={css`${LayoutChild}`}>
+    <TagList
+      selectedTag={selectedTag}
+      setSelectedTag={setSelectedTag} 
+      projectNames={projectNames} 
+      tags={tags} 
+     />
+  </aside>
+
+  <main css={css`
+    ${LayoutChild}
+  `}>
+    <BlogCards blogPosts={blogPosts} currentTag={selectedTag} />
+  </main>
   </Layout>
   )
 }

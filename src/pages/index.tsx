@@ -13,7 +13,6 @@ import { LayoutChild } from '../components/styles/scratch'
 import { under800 } from "../components/styles/mediaQueries"
 
 const IndexPage: React.FC = () => {
-
   // Retrieve JSON project info and all blog posts titles from data layer
   const {
     allWorksJson: { 
@@ -64,12 +63,11 @@ const IndexPage: React.FC = () => {
     <main css={css`
       ${LayoutChild}
       display: flex;
-      flex-direction: column;
-      align-items: left;
+      flex-wrap: wrap;
+      
       img {
-        padding-bottom: 1rem;
-        padding-top: 1rem;
-        width: 75%;
+        width: calc(33.33% - 1rem);
+        margin: 0.5rem;
       }
       ${under800} {
         img {
