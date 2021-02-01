@@ -1,30 +1,18 @@
-import React from "react"
+import React, { useRef } from "react"
+import {Link} from 'gatsby'
+
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
 
-import { over800, under800 } from '../components/styles/mediaQueries'
-import { ulForLinks } from "../components/styles/scratch"
+import { under992, under768 } from '../components/styles/mediaQueries'
 
 const SpindleCard = `
---testColor: hsl(260,90%,40%);
---testColorLight: hsl(260,20%,95%);
---testColorDark: hsl(260,90%,30%);
+a {
+  text-decoration: none;
+  color: inherit;
+}
 margin-bottom: 1.25rem;
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/merriweather/v22/u-440qyriQwlOrhSvowK_l5-fCZM.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -55,129 +43,197 @@ p {
   line-height: 1.4rem;
   font-family: var(--headerFont);
   }
-` 
+`
+const altCard = `
+a {
+  text-decoration: none;
+  color: inherit;
+}
+:hover {
+  h2{
+    text-decoration: underline;
+  }
+}
+margin-bottom: 3.052rem;
 
+h2 {
+  font-size: 1.25rem;
+  font-family: var(--bodyFont);
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+.date {
+  display: none;
+}
+p {
+  color: black;
+  opacity: 0.5;
+  font-size: 1.25rem;
+  padding-right: 1rem;
+  font-family: serif;
+  margin: 0;
+  line-height: 1.4rem;
+  font-family: var(--headerFont);
+  span {
+    display: none;
+  }
+  ::after {
+    content: '...';
+  }
+  }
+
+` 
 const Card:React.FC<{scamp:string}> = ({ scamp }) => {
   return (
   <div className="card" css={css`
   ${scamp}
   `}>
-        <p className="date">27 January 2021</p>
+        <Link to="/portfolio/site-redesign-dev-log-1">
+
+    <p className="date">27 January 2021</p>
 
     <h2>Creating a Design System for This Website</h2>
-    <p className="body">I am using the redesign of this site as an opportunity to think more deliberately about interface design. This blog post serves as a development log to record for future reference...</p>
+    <p className="body">I am using the redesign of this site as an opportunity to</p>
+    </Link>
+
   </div>
   )
 }
 
-const ZenGarden = () => {
+const CSS_header =`
+position: -webkit-sticky;
+position: sticky;
+top: 0px;
 
-  return (
-    <div css={css`
-      position: relative;
-      top: 0;
-      main {
-        background: var(--bg);
-      }
-      
-      nav {
-        @font-face {
-          font-family: 'Roboto';
-          font-style: normal;
-          font-weight: 400;
-          src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
-          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-        color: black;
-        position: sticky;
-        width: fit-content;
-        top: 0rem;
-        left: 100%;
-        text-align: right;
-        font-family: var(--bodyFont);
-        font-size: 3.052rem;
-        ${under800} {
-          font-size: 1.953rem;
-        }
-        padding: 0.25rem;
-        p {
-
-          margin: 0;
-          margin-bottom: 0.25rem;
-          text-align: right;
-        }
-        p:hover::before {
-          content: '·';
-          text-decoration:none;
-          display:inline-block;
-        }
-        #name {
-          font-size: 1rem;
-          font-family: var(--headerFont);
-    font-weight: normal;
-    :hover {
-      text-decoration: underline;
-    }
-    
-        }
-        #selected {
-          text-decoration: underline;
-        }
-      }
-      .card:hover {
-        cursor: pointer;
-
-        p, .date {
-          color: black
-        }
-      }
-      #workSample {
-        background: var(--bg);
-
-        padding-left: 12.5%;
-        padding-right: 12.5%;
-.proj {
   display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 3.052rem;
-  margin-top: 0.25rem;
-  * {
-    margin-right: 0.512rem;
-    margin-bottom: 0.512rem;
+  justify-content: space-between;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  font-family: var(--bodyFont);
+  font-size: 3.052rem;
+  ${under992} {
+    margin-left: 0%;
+    margin-right: 0%;
   }
-img {
-  justify-self: start;
-  align-self: start;
-  flex-grow: 0;
-  :hover {
-    filter: brightness(1.1);
-    opacity: 0.8;
-  }
-}
 
   h1 {
-    margin-top: 0;
-    font-family: var(--headerFont);
+    font-size: 3.052rem;
+    align-self: flex-start;
+    transform:translateX(-4px);
+    opacity: 1;
+    color: black;
+    margin: 0;
     font-weight: normal;
-    opacity: 0.5;
-    text-transform: uppercase;
-    :hover {
-      text-decoration: underline;
+  
+    ${under992} {
+      font-size: 1.563rem;
+      transform: translateX(0px);  
     }
   }
+  nav {
+    color: black;
+    text-align: right;
+    font-family: var(--bodyFont);
+    font-size: 3.052rem;
+
+    p {
+      margin: 0px;
+      margin-bottom: 0.25rem;
+      text-align: right;
+      ${under992} {
+        font-size: 1.563rem;
+      }
+    }
+    p:hover {
+      text-decoration: underline;
+    }
+    #selected::before {
+      content: '·';
+      text-decoration:none;
+      display:inline-block;
+      padding-right:1rem;
+    }
+`
+
+const CSS_workSample = `
+background: var(--bg);
+
+padding-left: 12.5%;
+padding-right: 12.5%;
+${under768} {
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
-      }
-      #blog {
-        background: var(--bg);
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        padding-left: 25%;
-        padding-right: 25%;
-      }
+  .proj {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3.052rem;
+    margin-top: 0.25rem;
+    * {
+      margin-right: 0.512rem;
+      margin-bottom: 0.512rem;
+    }
+    .textBox {
+      font-family: var(--headerFont);
+      width: 100px;
+      height: fit-content;
+      word-wrap: break-word;
+      overflow: hidden;
+      font-size: 1.25rem;
+      opacity: 0.5;
 
-      #about {
-        min-height: 50vh;
+      :hover {
+        text-decoration: underline;
+      } 
+    }
+    img {
+      justify-self: start;
+      align-self: start;
+      flex-grow: 0;
+      max-width: calc(100vw - 2%);
+      :hover {
+        filter: brightness(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    h1 {
+      margin-top: 0;
+      font-family: var(--headerFont);
+      font-weight: normal;
+      opacity: 0.5;
+      text-transform: uppercase;
+      :hover {
+        text-decoration: underline;
+      }
+    }
+`
+
+const CSS_blogList = `
+  background: var(--bg);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 12.5%;
+  padding-right: 25%;
+  ${under768} {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .card:hover {
+    cursor: pointer;
+    p, .date {
+      opacity: 0.6;
+    }
+
+}
+
+`
+
+const CSS_footer = `
+min-height: 50vh;
         position: sticky;
         bottom: 0;
         z-index: -10;
@@ -204,29 +260,35 @@ img {
         #social {
           text-decoration: underline;
         }
-      }
-      header {
-        position: fixed;
-        margin-left: 12.5%;
-        font-family: var(--bodyFont);
-        font-size: 3.052rem;
-        ${under800} {
-          font-size: 1.953rem;
-        }
+`
 
+const ZenGarden = () => {
+  const blogRef = useRef(null)
+  const executeScroll = (ref:any) => ref.current.scrollIntoView()
+  return (
+    <div css={css`
+      position: relative;
+      top: 0;
+      main {
+        background: var(--bg);
       }
     `}>
-      <header>Nicholas Marino</header>
+      <header css={css`${CSS_header}`}>
+        <h1>Nicholas Marino</h1>
+        <nav>
+          <p>Work Sample</p>
+          <p id="selected">Blog</p>
+          <p>About</p>
+        </nav>
+      </header>
+      
       <main>
-      <nav>
-        <p>Work Sample</p>
-        <p id="selected">Blog</p>
-        <p>About</p>
-      </nav>
-      <section id="workSample">
+
+      <section id="workSample" css={css`${CSS_workSample}`}>
         <div className="proj">
         <h1>megalith</h1>
           <img src="https://source.unsplash.com/random/200x300" alt="unsplash"/>
+          <div className="textBox">Creating A Design System For This Website</div>
           <img src="https://source.unsplash.com/random/100x200" alt="unsplash"/>
           <img src="https://source.unsplash.com/random/250x250" alt="unsplash"/>
         </div>
@@ -236,17 +298,31 @@ img {
           <img src="https://source.unsplash.com/random/200x200" alt="unsplash"/>
           <img src="https://source.unsplash.com/random/150x250" alt="unsplash"/>
         </div>
+        <div className="proj">
+        <h1>p5 tetris</h1>
+          <img src="https://source.unsplash.com/random/300x200" alt="unsplash"/>
+          <img src="https://source.unsplash.com/random/125x125" alt="unsplash"/>
+          <div className="textBox">Using Design Patterns To Refactor</div>
+          <img src="https://source.unsplash.com/random/250x200" alt="unsplash"/>
+        </div>
 
       </section>
-      <section id="blog">
+      
+      <section id="blog" css={css`${CSS_blogList}`} ref={blogRef}>
+        {/* <Card scamp={SpindleCard} />
         <Card scamp={SpindleCard} />
         <Card scamp={SpindleCard} />
-        <Card scamp={SpindleCard} />
-        <Card scamp={SpindleCard} />
-        <Card scamp={SpindleCard} />
+        <Card scamp={SpindleCard} /> */}
+        <Card scamp={altCard} />
+        <Card scamp={altCard} />
+        <Card scamp={altCard} />
+        <Card scamp={altCard} />
+        <Card scamp={altCard} />
       </section>
+      
       </main>
-      <footer id="about">
+      
+      <footer id="about" css={css`${CSS_footer}`}>
         <h1>Nicholas Marino</h1>
         <p>Web developer and creative technologist based in Brooklyn, NY.</p>
         <p>Full stack web development, graphic and generative design, writings on code and art.</p>
