@@ -7,23 +7,24 @@ import { jsx, css } from '@emotion/react'
 import Header from './Header'
 import Footer from './Footer'
 
-const MainLayout: React.FC<{title:string}> = ({ children, title, }) => {
+const Layout: React.FC<{title:string}> = ({ children, title, }) => {
   return (
   <div css={css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    position: relative;
+    top: 0;
+    main {
+      background: var(--bg);
+    }
   `}>
     <SEO title={title} />
     <Header />
     {children}
     <Footer />
+    <a id="about"></a>
   </div>
 )}
 
-export default MainLayout
+export default Layout
 
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {

@@ -3,36 +3,76 @@ import { BlogPost } from '../types'
 
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react'
-import { BodyParagraph, CardHeadline, Label, LayoutChild, Subtitle } from "./styles/scratch"
+import { under768 } from '../components/styles/mediaQueries'
+
+const CSS_blog = `
+  background: var(--bg);
+  padding-top: calc(var(--xxl) * 3 + 1rem);
+  padding-left: 12.5%;
+  padding-right: 50%;
+  ${under768} {
+    padding-left: 1%;
+    padding-right: 1%;
+  }      
+  .blogTitle {
+    font-family: var(--sans);
+    font-weight: normal;
+    font-size: var(--l);
+    letter-spacing: 0.8px;
+    margin-top: 0;
+
+  }
+  .blog-post-content {
+    font-family: var(--mono);
+    font-size: var(--s);
+    line-height: 1.5;
+    opacity: 1;
+    p {
+      margin: 0;
+      text-align: justify;
+    }
+    a {
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  .blog-post-content h2 {
+    font-family: var(--mono);
+    font-weight: normal;
+    letter-spacing: 0.8px;
+    font-size: var(--m);
+    text-transform: uppercase;
+    opacity: 1;
+    color: var(--accent);
+    margin-top: var(--xl);
+    margin-bottom: var(--xs);
+  }
+
+  .blog-post-content h3 {
+    font-family: var(--mono);
+    font-weight: normal;
+    font-size: var(--s);
+    opacity: 0.5;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-top: var(--xl);
+    margin-bottom: var(--xxs);
+
+  }
+`
 
 const BlogContainer: React.FC<BlogPost> = ({ frontmatter, html}) => {
+  console.log(html)
   return (
       <article css={css`
-        ${LayoutChild}
-        h2 {
-          ${CardHeadline}
-          font-size: 333%;
-        }
-        .date {
-          ${Subtitle}
-          margin-bottom: 4rem;
-        }
-        .blog-post-content {
-          ${BodyParagraph}
-        }
-        .tag {
-          ${Label}
-        }
+        ${CSS_blog}
       `}>
-        <h2>{frontmatter.title}</h2>
-        <p className="date">{frontmatter.date}</p>
+        <h2 className="blogTitle"><span>{frontmatter.title}</span></h2>
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        { frontmatter.tags.map(tag => 
-        <p key={tag} className="tag">{tag}</p>)
-        }
       </article>
   )
 }

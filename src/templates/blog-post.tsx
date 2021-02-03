@@ -16,7 +16,9 @@ const Template: React.FC<{data: {markdownRemark: BlogPost}}> = (
     console.log(frontmatter)
     return (
     <Layout title={frontmatter.title}>
+      <main>
       <BlogContainer frontmatter={frontmatter} html={html} />
+      </main>
     </Layout>
   )
 }

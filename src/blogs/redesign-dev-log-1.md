@@ -1,9 +1,7 @@
 ---
-project: portfolio
 slug: /portfolio/site-redesign-dev-log-1
 title: Portfolio Site Redesign - Dev Log 1
-tags: ['web dev', 'design',]
-date: '29 January 2021'
+text: I am using the redesign of this site as an opportunity to
 ---
 
 I am using the redesign of this site as an opportunity to think more deliberately about interface design. This blog post serves as a development log to record for future reference the challenges I faced while constructing my portfolio, and how I faced those challenges. I hope it will also serve as a model for future blog posts.
@@ -29,7 +27,7 @@ For this project, I have allowed myself to embrace a limited definition of graph
 
 ### King vs. Pawn UI Design
 I have also been thinking about Erik Kennedy's article [The King vs. Pawn Game of UI Design](https://learnui.design/blog/king-vs-pawn-game-ui-design.html). He proposes that when starting a site design, one should isolate a single fundamental element and design it carefully. For this reason I have started my prototyping with a basic element - the blog post card, which will link from the home page to individual blog posts. This card, with a header, small subtitle, and tags, will be fertile ground for figuring out the look and feel of the site, which I can then universalize to more peripheral elements. 
-
+<!-- 
 ### Designing 'By The Book'
 Recently I've been reading the book [Graphic Design School: The Principles and Practice of Graphic Design](https://www.wiley.com/en-us/Graphic+Design+School%3A+The+Principles+and+Practice+of+Graphic+Design%2C+7th+Edition-p-9781119647287) and I want to incorporate some of its teachings into this development process. To start, I will be using the book's recommendation that I begin by sketching a bunch of thumbnail mock-ups, letting my brain be loosey-goosey and not worry about end results, before fine-tuning a few that seem promising, until they are solid enough that I can again go loosey-goosey.
 
@@ -46,4 +44,4 @@ An example of iterating over an initial concept:
 ![scamp 3c](scamp3_iteration3.png)
 ![scamp 3](scamp3.png)
 
-I chose the latter 2 to develop further. I did some more sketching by hand to come up with a full page layout that would display some navigation options and tag options alongside the main content. I planned to choose 3 layout options and develop them for each of the two prototyped blog cards.
+I chose the latter 2 to develop further. I did some more sketching by hand to come up with a full page layout that would display some navigation options and tag options alongside the main content. I planned to choose 3 layout options and develop them for each of the two prototyped blog cards. -->

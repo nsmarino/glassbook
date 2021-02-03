@@ -36,11 +36,11 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `works`,
-        path: `${__dirname}/src/works`,
+        name: `src`,
+        path: `${__dirname}/src`,
       },
     },
-    `gatsby-remark-images`,
+    // `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

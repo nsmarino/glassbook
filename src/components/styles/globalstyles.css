@@ -4,26 +4,29 @@ html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   overflow-y: scroll;
-  font-size: 100%;
+  font-size: 16px;
 
 /* CSS Variables */
-
-  /* Colors */
-  /* --bg:hsl(120,30%,90%); */
-  --bg: hsl(60,0%,94%);
-  --accentColor:#222;
+  --bg: hsl(60,0%,100%);
+  --stripes: repeating-linear-gradient(
+    90deg
+    , var(--bg), var(--bg) 6px, rgba(0,0,0,0.5) 7px);   
   --fontColor: #222;
   --headerFont: 'Inconsolata';
-  --bodyFont: 'Open Sans';
-  --readable: 'Times New Roman', serif;
+  --bodyFont: 'Arial';
+  --accent: black;
 
-  /* Fonts */
-  --bodyFontSize: 150%;
-  --headlineFontSize: 225%;
-  
-  /* Misc */
-  --boxShadow: 5px 5px 35px rgba(0,0,0,0.25);
-  --borderRadius: 0px;
+  --mono: 'Inconsolata';
+  --sans: 'Arial';
+
+  /* Font sizes */
+  --xxl: 3.052rem;
+  --xl: 2.441rem;
+  --l: 1.953rem;
+  --m: 1.563rem;
+  --s: 1.25rem;
+  --xs: 1rem;
+  --xxs: 0.8rem;
 
 }
 
