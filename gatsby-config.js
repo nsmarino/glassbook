@@ -40,7 +40,7 @@ module.exports = {
         path: `${__dirname}/src`,
       },
     },
-    // `gatsby-remark-images`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

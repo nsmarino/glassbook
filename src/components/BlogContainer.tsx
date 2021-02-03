@@ -1,5 +1,4 @@
 import React from "react"
-import { BlogPost } from '../types'
 
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react'
@@ -32,7 +31,7 @@ const CSS_blog = `
       text-align: justify;
     }
     a {
-      color: black;
+      color: var(--fontColor);
       font-weight: bold;
     }
   }
@@ -62,8 +61,16 @@ const CSS_blog = `
   }
 `
 
-const BlogContainer: React.FC<BlogPost> = ({ frontmatter, html}) => {
-  console.log(html)
+interface iBlogPost {
+  frontmatter: {
+    text: string
+    slug: number
+    title: string
+  }
+  html: string
+}
+
+const BlogContainer: React.FC<iBlogPost> = ({ frontmatter, html}) => {
   return (
       <article css={css`
         ${CSS_blog}

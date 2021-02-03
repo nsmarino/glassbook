@@ -1,10 +1,8 @@
 export interface BlogPost {
   frontmatter: {
-    project: string
+    text: string
     slug: number
     title: string
-    tags: string[]
-    date: string
   }
   html: string
 }

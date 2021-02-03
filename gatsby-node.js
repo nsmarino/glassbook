@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const blogPostTemplate = path.resolve(`src/templates/blog-post.tsx`)
   return graphql(`
     query blogPostQuery {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(blogs)/"  }}) {
         edges {
           node {
             frontmatter {

@@ -13,7 +13,6 @@ const Template: React.FC<{data: {markdownRemark: BlogPost}}> = (
     }
     } 
   }) => {
-    console.log(frontmatter)
     return (
     <Layout title={frontmatter.title}>
       <main>
@@ -32,9 +31,6 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
-        project
-        tags
-        date
       }
     }
   }

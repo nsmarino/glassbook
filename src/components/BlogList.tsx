@@ -7,6 +7,18 @@ import { css, jsx } from '@emotion/react'
 
 import { under768 } from '../components/styles/mediaQueries'
 
+interface iBlogCard {
+  node: {
+    html: string
+    id: string
+    frontmatter: {
+      slug: string
+      title: string
+      text: string
+    }
+  }
+}
+
 const CSS_blogList = `
   background: var(--bg);
   padding-top: calc(var(--xxl) * 3 + 1rem);
@@ -44,7 +56,7 @@ h2 {
 }
 
 .body {
-  color: black;
+  color: var(--fontColor);
   opacity: 0.5;
   font-size: var(--s);
   padding-right: 1rem;
@@ -56,7 +68,7 @@ h2 {
   }
   }
 ` 
-const Card:React.FC<{blog: any}> = ({ blog }) => {
+const Card:React.FC<{blog: iBlogCard}> = ({ blog }) => {
   return (
   <div className="card" css={css`
     ${CSS_card}
@@ -89,7 +101,7 @@ const BlogList: React.FC = () => {
   `)
   return (
   <section id="blog" css={css`${CSS_blogList}`}>
-    {blogs.map((blog:any) => <Card blog={blog} />)}
+    {blogs.map((blog:iBlogCard) => <Card blog={blog} />)}
   </section>
   )
 }

@@ -96,4 +96,3 @@ export default IndexPage
   //     ...proj,
   //     blogs: blogPosts.filter((post) => post.frontmatter.project === proj.name)
   // }})
-  // console.log(projectsWithBlogs)

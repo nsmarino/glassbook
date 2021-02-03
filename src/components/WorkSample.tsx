@@ -7,7 +7,7 @@ import { under768 } from '../components/styles/mediaQueries'
 
 const CSS_recentWork = `
 padding-left: 12.5%;
-padding-right: 12.5%;
+padding-right: 25%;
 padding-top: calc(var(--xxl) * 3 + 1rem);
 
 ${under768} {
@@ -16,7 +16,7 @@ ${under768} {
 }
 
 .workfile {
-  display: flex;
+  .flexContainer {display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   margin-bottom: var(--xxl);
@@ -26,7 +26,7 @@ ${under768} {
     ${under768} {
       margin-right: 0rem;
     }
-  }
+  }}
   h2 {
     font-size: var(--m);
     margin-top: 0;
@@ -34,18 +34,19 @@ ${under768} {
     font-weight: normal;
     opacity: 0.5;
     text-transform: uppercase;
+
     ${under768} {
       width: calc(50vw - 2%);
     }
     :hover {
-      // text-decoration: underline;
       opacity: 1;
       cursor: pointer;
     }
   
   }
   .test {
-    width: 240px;
+
+    width: 150px;
     ${under768} {
       width: calc(100vw - 2%);
     }
@@ -54,10 +55,10 @@ ${under768} {
     margin: 0;
   }
   .link {
-    color: black;
+    color: var(--fontColor);
     text-decoration: none;
     font-family: var(--mono);
-    max-width: 120px;
+    width: 150px;
     word-wrap: break-word;
     overflow: hidden;
     font-size: var(--s);
@@ -74,8 +75,14 @@ ${under768} {
 }
 `
 
+interface iRecentWork {
+  node: {
+    html: string
+    id: string
+  }
+}
 const WorkSample: React.FC = () => {
-  const {allMarkdownRemark: { edges: recentWork }} = useStaticQuery(graphql`
+  const {allMarkdownRemark: { edges: recentWork}} = useStaticQuery(graphql`
   query recentWork {
   allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(recentwork)/"  }}) {
     edges {
@@ -87,10 +94,9 @@ const WorkSample: React.FC = () => {
   }
 }
 `)
-
   return (
   <section css={css`${CSS_recentWork}`} id="workSample">
-  {recentWork.map((edge:any) => 
+  {recentWork.map((edge:iRecentWork) => 
     <div
       key={edge.node.id}
       className="workfile"
