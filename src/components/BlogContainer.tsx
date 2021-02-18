@@ -57,7 +57,10 @@ const CSS_blog = `
     text-transform: uppercase;
     margin-top: var(--xl);
     margin-bottom: var(--xxs);
-
+  }
+  pre {
+    color: white;
+    background: #222;
   }
 `
 
