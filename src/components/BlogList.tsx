@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Image, { FluidObject } from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
 /** @jsx jsx */
@@ -15,6 +16,11 @@ interface iBlogCard {
       slug: string
       title: string
       text: string
+      featuredImage: {
+        childImageSharp: {
+          fluid: FluidObject
+        }
+      }
     }
   }
 }
@@ -32,17 +38,16 @@ const CSS_blogList = `
   }
 `
 const CSS_card = `
+width: 250px;
 a {
   text-decoration: none;
   color: inherit;
 }
 :hover {
   cursor: pointer;
+  filter: grayscale(50%);
   h2{
     text-decoration: underline;
-  }
-  .body{
-    opacity: 0.6;
   }
 }
 margin-bottom: var(--xxl);
@@ -69,13 +74,20 @@ h2 {
   }
 ` 
 const Card:React.FC<{blog: iBlogCard}> = ({ blog }) => {
+  // console.log(blog.node.frontmatter.featuredImage)
   return (
   <div className="card" css={css`
     ${CSS_card}
   `}>
     <Link to={blog.node.frontmatter.slug}>
+      {blog.node.frontmatter.featuredImage &&
+        <Image
+          fluid={blog.node.frontmatter.featuredImage.childImageSharp.fluid}
+          alt={blog.node.frontmatter.title}
+        />      
+      }
       <h2>{blog.node.frontmatter.title}</h2>
-      <p className="body">{blog.node.frontmatter.text}</p>
+      {/* <p className="body">{blog.node.frontmatter.text}</p> */}
     </Link>
   </div>
   )
@@ -93,6 +105,13 @@ const BlogList: React.FC = () => {
               slug
               title
               text
+              featuredImage {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             } 
           }
         }

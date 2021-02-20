@@ -8,7 +8,7 @@ const CSS_blog = `
   background: var(--bg);
   padding-top: calc(var(--xxl) * 3 + 1rem);
   padding-left: 12.5%;
-  padding-right: 50%;
+  padding-right: 37.5%;
   ${under768} {
     padding-left: 1%;
     padding-right: 1%;
@@ -27,7 +27,7 @@ const CSS_blog = `
     line-height: 1.5;
     opacity: 1;
     p {
-      margin: 0;
+      
       text-align: justify;
     }
     a {
