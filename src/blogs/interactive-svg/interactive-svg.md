@@ -1,11 +1,12 @@
 ---
-slug: /interactive-svg/blog
+slug: /interactive-svg
 title: Zoomable Point-and-Click Game with SVG, React Hooks and Greensock
 text: Zoomable adventure game
 featuredImage: "./chapter-one-scene.png"
 ---
-
-![Interactive SVG Image depicted a simple mountain pictograph](immortal-mtn-chapter-click.gif)
+<div className="titleImage">
+<img src="immortal-mtn-chapter-click.gif" alt="Interactive SVG Image depicted a simple mountain pictograph" />
+</div>
 
 ### Introduction
 I prototyped a simple point-and-click game in React, using [Greensock](https://greensock.com/gsap/) to manage animations and [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) as a rendering medium. I took on this project for two reasons.
@@ -27,15 +28,23 @@ React is a framework for creating interactive user interfaces. It is designed ar
 Greensock is not designed for use with a virtual DOM. It manages applications by working directly with DOM nodes. To use Greensock with React, we need to first get a reference to the DOM node we want to animate, then create a [timeline object](https://greensock.com/docs/v3/GSAP/Timeline) that persists through re-renders so we can play it and pause it in response to different events in the game (for example, when the player clicks something). This is a lot of logic to do for every single thing we want to animate. When you have complex logic involving state and rendering that you will need to reuse throughout your application, React provides a solution in the form of [custom hooks](https://reactjs.org/docs/hooks-custom.html). I created a useTimelines hook and a useZoom hook to reconcile the design differences between React and Greensock and more easily use the best features from each. 
 
 ### Designing a prototype in Adobe Illustrator
+
 ![Immortal Mountain drawing in adobe illustrator](immortal-mtn-in-illustrator.png)
+
+<div>
+<img src="immortal-mtn-in-illustrator.png" alt="immortal mountain in adobe illustrator" />
+</div>
+
 For the prototype, I used Adobe Illustrator to create a pictograph-like depiction of a mountain (i.e., a bumpy line) with the grandiose words 'CHAPTER ONE' underneath. I wanted to set up two modes of interaction:
 - The user can click on CHAPTER ONE to zoom in to a scene
 - In that scene, clicking on interactive elements will affect the state of the app and start/stop animations accordingly.
 
 To make the SVG easy to deal with in React, it is important to separate the different parts of the drawing into named layers.
+
 ![Different layers of svg image in illustrator](svg-layers.png)
 
 After preparing the svg for export, I click "Show Code" to see the raw SVG markup in a .txt file. It's easier to just copy it from there and paste it into my React app.
+
 ![Settings used for svg export](svg-settings.png)
 
 I removed the boilerplate from [create-react-app](https://github.com/facebook/create-react-app) and set up the basic skeleton of the prototype:

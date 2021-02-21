@@ -12,15 +12,30 @@ const Layout: React.FC<{title:string}> = ({ children, title, }) => {
   <div css={css`
     position: relative;
     top: 0;
-    main {
-      background: var(--bg);
+
+    svg {
+      width: var(--xs);
+      height: var(--xs);
+      position: sticky;
+      top: var(--xxs);
+      left: calc(12.5% + var(--xxs));
+      margin: var(--xxs);
+    }
+    svg:hover {
+      polygon {
+        stroke: var(--fontColor);
+        stroke-width: 1;
+        fill: white;
+      }
     }
   `}>
     <SEO title={title} />
-    <Header />
-    {children}
-    <Footer />
-    <a id="about"></a>
+    <a href="/">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="24 24 52 52">
+        <polygon points="25,75 25,50 50,25 75,50 75,75" fill="var(--fontColor)"/>
+      </svg>
+    </a>   
+  {children}
   </div>
 )}
 

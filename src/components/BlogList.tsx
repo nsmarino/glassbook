@@ -26,9 +26,7 @@ interface iBlogCard {
 }
 
 const CSS_blogList = `
-  background: var(--bg);
-  padding-top: calc(var(--xxl) * 3 + 1rem);
-
+  display: flex;
   padding-bottom: 1rem;
   padding-left: 12.5%;
   padding-right: 25%;
@@ -43,21 +41,25 @@ a {
   text-decoration: none;
   color: inherit;
 }
-:hover {
+:hover   {
   cursor: pointer;
-  filter: grayscale(50%);
-  h2{
-    text-decoration: underline;
+  filter: invert(1);
+  h2 {
+    filter: invert(1);
+    background: var(--fontColor);
+    color: var(--bg);
   }
 }
 margin-bottom: var(--xxl);
+margin-right: var(--m);
 
 h2 {
   font-size: var(--s);
   font-family: var(--sans);
   font-weight: normal;
-  margin-top: 0;
-  margin-bottom: 0.25rem;
+  margin-top: var(--xxs);
+  background-color: var(--fg);
+  width: fit-content;
 }
 
 .body {

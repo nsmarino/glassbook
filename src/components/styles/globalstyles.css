@@ -7,8 +7,9 @@ html {
   font-size: 16px;
 
 /* CSS Variables */
-  --bg: #eeefff;
-  /* --bg: hsl(60,0%,100%); */
+  /* --bg: #eeefff; */
+  --bg: hsl(236,100%,96%);
+  --fg: hsl(236, 100%, 97%);
   --stripes: repeating-linear-gradient(
     90deg
     , var(--bg), var(--bg) 6px, rgba(0,0,0,0.5) 7px);   
@@ -36,7 +37,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
+  background-image: var(--stripes);
   color: var(--fontColor);
   font-family: var(--sans);
 }

@@ -5,8 +5,6 @@ import { css, jsx } from '@emotion/react'
 import { under768 } from '../components/styles/mediaQueries'
 
 const CSS_blog = `
-  background: var(--bg);
-  padding-top: calc(var(--xxl) * 3 + 1rem);
   padding-left: 12.5%;
   padding-right: 37.5%;
   ${under768} {
@@ -16,7 +14,9 @@ const CSS_blog = `
   .blogTitle {
     font-family: var(--sans);
     font-weight: normal;
-    font-size: var(--l);
+    font-size: var(--xl);
+    padding: var(--xxs);
+    background: var(--fg);
     letter-spacing: 0.8px;
     margin-top: 0;
 
@@ -26,8 +26,15 @@ const CSS_blog = `
     font-size: var(--s);
     line-height: 1.5;
     opacity: 1;
+    img {
+      margin-left: 25%;
+      width: 50%;
+      margin-right: 25%;
+    }
     p {
-      
+      background: var(--fg);
+      padding: var(--xxs);
+
       text-align: justify;
     }
     a {
@@ -51,10 +58,10 @@ const CSS_blog = `
   .blog-post-content h3 {
     font-family: var(--mono);
     font-weight: normal;
-    font-size: var(--s);
-    opacity: 0.5;
-    color: var(--accent);
-    text-transform: uppercase;
+    font-size: var(--m);
+    background: var(--fontColor);
+    color: var(--fg);
+    text-align: center;
     margin-top: var(--xl);
     margin-bottom: var(--xxs);
   }
@@ -78,7 +85,7 @@ const BlogContainer: React.FC<iBlogPost> = ({ frontmatter, html}) => {
       <article css={css`
         ${CSS_blog}
       `}>
-        <h2 className="blogTitle"><span>{frontmatter.title}</span></h2>
+        <h2 className="blogTitle">{frontmatter.title}</h2>
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}

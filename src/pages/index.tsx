@@ -1,13 +1,11 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
-import { ProjectData, ProjectJSON, BlogPostData } from '../types'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
 
 import Layout from "../components/Layout"
-import WorkSample from "../components/WorkSample"
+import About from '../components/About'
+// import WorkSample from "../components/WorkSample"
 import BlogList from "../components/BlogList"
 
 const IndexPage: React.FC = () => {
@@ -15,7 +13,8 @@ const IndexPage: React.FC = () => {
   return (
   <Layout title="portfolio">
   <main>
-    <WorkSample />
+    <About />
+    {/* <WorkSample /> */}
     <BlogList />
   </main>
   </Layout>
