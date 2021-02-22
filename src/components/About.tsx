@@ -5,7 +5,6 @@ import { Link } from "gatsby"
 import { css, jsx } from '@emotion/react'
 
 const CSS_about = `
-background-image: var(--stripes);     
 padding-left: 12.5%;
 padding-right: 12.5%;
 h1 {
@@ -51,7 +50,7 @@ p {
 const About: React.FC = () => (
   <aside css={css`${CSS_about}`}>
     <h1>Nicholas Marino, web developer</h1>
-    <p>Freelance React/NodeJS. Interested in game design, artificial life, and presenting information.</p>
+    <p>Freelance React/NodeJS. Interested in game design, artificial life, and the presentation of information.</p>
     
     <div id="social">
       <a href="https://twitter.com/yard__">Twitter</a>

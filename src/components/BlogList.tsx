@@ -15,7 +15,7 @@ interface iBlogCard {
     frontmatter: {
       slug: string
       title: string
-      text: string
+      order: number
       featuredImage: {
         childImageSharp: {
           fluid: FluidObject
@@ -60,20 +60,15 @@ h2 {
   margin-top: var(--xxs);
   background-color: var(--fg);
   width: fit-content;
+  padding: var(--xxs);
 }
-
-.body {
-  color: var(--fontColor);
-  opacity: 0.5;
-  font-size: var(--s);
-  padding-right: 1rem;
-  margin: 0;
-  line-height: 1.4rem;
-  font-family: var(--mono);
-  ::after {
-    content: '...';
-  }
-  }
+.imageWrapper {
+  width: 250px;
+  height: 250px;
+}
+img {
+  max-height: 250px;
+}
 ` 
 const Card:React.FC<{blog: iBlogCard}> = ({ blog }) => {
   // console.log(blog.node.frontmatter.featuredImage)
@@ -82,12 +77,14 @@ const Card:React.FC<{blog: iBlogCard}> = ({ blog }) => {
     ${CSS_card}
   `}>
     <Link to={blog.node.frontmatter.slug}>
+      <div className="imageWrapper">
       {blog.node.frontmatter.featuredImage &&
         <Image
           fluid={blog.node.frontmatter.featuredImage.childImageSharp.fluid}
           alt={blog.node.frontmatter.title}
         />      
       }
+      </div>
       <h2>{blog.node.frontmatter.title}</h2>
       {/* <p className="body">{blog.node.frontmatter.text}</p> */}
     </Link>
@@ -106,7 +103,7 @@ const BlogList: React.FC = () => {
             frontmatter {
               slug
               title
-              text
+              order
               featuredImage {
                 childImageSharp {
                   fluid {
@@ -122,17 +119,16 @@ const BlogList: React.FC = () => {
   `)
   return (
   <section id="blog" css={css`${CSS_blogList}`}>
-    {blogs.map((blog:iBlogCard) => <Card blog={blog} />)}
+    {blogs
+      .sort((a:iBlogCard,b:iBlogCard)=>
+        b.node.frontmatter.order-a.node.frontmatter.order
+        )
+      .map((blog:iBlogCard) => 
+        <Card blog={blog} />
+        )
+    }
   </section>
   )
 }
 
 export default BlogList
-
-// import { BlogPostData } from '../types'
-// import BlogPostCard from "./BlogPostCard"
-
-// interface CardsCompProps {
-//   blogPosts: BlogPostData[]
-//   currentTag: string
-// }

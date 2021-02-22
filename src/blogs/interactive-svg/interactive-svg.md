@@ -1,8 +1,8 @@
 ---
 slug: /interactive-svg
 title: Zoomable Point-and-Click Game with SVG, React Hooks and Greensock
-text: Zoomable adventure game
 featuredImage: "./chapter-one-scene.png"
+order: 1
 ---
 <div className="titleImage">
 <img src="immortal-mtn-chapter-click.gif" alt="Interactive SVG Image depicted a simple mountain pictograph" />
@@ -29,9 +29,7 @@ Greensock is not designed for use with a virtual DOM. It manages applications by
 
 ### Designing a prototype in Adobe Illustrator
 
-![Immortal Mountain drawing in adobe illustrator](immortal-mtn-in-illustrator.png)
-
-<div>
+<div class="content-image">
 <img src="immortal-mtn-in-illustrator.png" alt="immortal mountain in adobe illustrator" />
 </div>
 
@@ -41,11 +39,15 @@ For the prototype, I used Adobe Illustrator to create a pictograph-like depictio
 
 To make the SVG easy to deal with in React, it is important to separate the different parts of the drawing into named layers.
 
-![Different layers of svg image in illustrator](svg-layers.png)
+<div class="content-image">
+<img src="svg-layers.png" alt="Different layers of svg image in illustrator" />
+</div>
 
 After preparing the svg for export, I click "Show Code" to see the raw SVG markup in a .txt file. It's easier to just copy it from there and paste it into my React app.
 
-![Settings used for svg export](svg-settings.png)
+<div class="content-image">
+<img src="svg-settings.png" alt="Settings used for svg export" />
+</div>
 
 I removed the boilerplate from [create-react-app](https://github.com/facebook/create-react-app) and set up the basic skeleton of the prototype:
 
@@ -205,7 +207,9 @@ export default ChapterOne
 ```
 Clicking on 'Chapter One' changes zoom level, re-rendering the SVG Container with a smooth Greensock animation. The scene hidden inside the O of 'Chapter One' fades into view. Clicking 'back' inside the scene will reverse the animation and return us to the original zoom level.
 
-![Interactive SVG Image depicted a simple mountain pictograph](immortal-mtn-chapter-click.gif)
+<div class="content-image">
+<img src="immortal-mtn-chapter-click.gif" alt="Interactive SVG Image depicted a simple mountain pictograph" />
+</div>
 
 ### The useTimelines Custom Hook
 The showChapter animation is stored as a function inside a file called 'animations.js.'
@@ -364,10 +368,12 @@ export default ChapterOne
 
 The lever now starts and stops the gears when clicked.
 
-![Lever is clicked and triggers gear animation](immortal-mtn-lever-pull.gif)
+<div class="content-image">
+<img src="immortal-mtn-lever-pull.gif" alt="Lever is clicked and triggers gear animation" />
+</div>
 
 ### Next steps
-Developing this prototype helped me think more critically about working with React's rendering philosophy instead of against it, and I got a lot more comfortable implementing custom hooks for complex reusable component logic. If I were to continue working on this project, I would work on the game design before doing any further programming, then refine and refactor the hooks and animations according to the dictates of the game. It would also be interesting to make sure the interactive SVG elements are [as accessible as possible](https://css-tricks.com/accessible-svgs/). 
+Developing this prototype helped me think more critically about working with React's rendering philosophy instead of against it, and I got a lot more comfortable implementing custom hooks for complex reusable component logic. If I were to continue working on this project, I would work on the game design before doing any further programming, then refine and refactor the hooks and animations according to the dictates of the game. If the state got complicated, I would probably consider using [Redux](https://redux.js.org/). It would also be interesting to make sure the interactive SVG elements are [as accessible as possible](https://css-tricks.com/accessible-svgs/). 
 
 The repo for this project can be found on my [github](https://github.com/nsmarino/point-and-click).
 

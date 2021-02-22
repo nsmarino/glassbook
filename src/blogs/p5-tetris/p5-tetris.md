@@ -1,7 +1,7 @@
 ---
 slug: /p5-tetris
 title: Tetris with p5.js
-text: Zoomable adventure game
 featuredImage: "./tetris.png"
+order: 2
 ---
 Hello world

@@ -7,12 +7,13 @@ html {
   font-size: 16px;
 
 /* CSS Variables */
-  /* --bg: #eeefff; */
-  --bg: hsl(236,100%,96%);
+  --bg: hsl(236,100%,95%);
+  --bg-dark: hsl(236, 100%, 86%);
   --fg: hsl(236, 100%, 97%);
   --stripes: repeating-linear-gradient(
     90deg
-    , var(--bg), var(--bg) 6px, rgba(0,0,0,0.5) 7px);   
+    , var(--bg), var(--bg) 6px, rgba(0,0,0,0.5) 7px); 
+  --ambience: linear-gradient(var(--bg), var(--bg-dark));
   --fontColor: black;
   --accent: black;
 
@@ -38,12 +39,16 @@ body {
   margin: 0;
   padding: 0;
   background-image: var(--stripes);
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover; 
+  min-height: 100vh;
   color: var(--fontColor);
   font-family: var(--sans);
 }
 
 ::selection {
-  background: grey ; 
+  background: gold ; 
   color: var(--fontColor); 
 } 
 

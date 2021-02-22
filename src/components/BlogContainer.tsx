@@ -5,8 +5,8 @@ import { css, jsx } from '@emotion/react'
 import { under768 } from '../components/styles/mediaQueries'
 
 const CSS_blog = `
-  padding-left: 12.5%;
-  padding-right: 37.5%;
+  padding-left: 25%;
+  padding-right: 25%;
   ${under768} {
     padding-left: 1%;
     padding-right: 1%;
@@ -19,56 +19,60 @@ const CSS_blog = `
     background: var(--fg);
     letter-spacing: 0.8px;
     margin-top: 0;
-
   }
+
   .blog-post-content {
     font-family: var(--mono);
     font-size: var(--s);
     line-height: 1.5;
     opacity: 1;
-    img {
-      margin-left: 25%;
+    .content-image {
       width: 50%;
-      margin-right: 25%;
+      margin-left: 25%;
+      img {
+        max-width: 100%;
+      }
+    }
+    h3 {
+      font-family: var(--mono);
+      font-weight: normal;
+      font-size: var(--m);
+      background: var(--fontColor);
+      color: var(--fg);
+      text-align: center;
+      margin-top: var(--xxl);
+      width: fit-content;
+      margin-bottom: var(--xxs);
+      padding-left: var(--xxs);
+      padding-right: var(--xxs);
     }
     p {
       background: var(--fg);
       padding: var(--xxs);
-
       text-align: justify;
+      margin-top: var(--xxs);
+      margin-bottom: var(--xxs);
+    }
+    ul {
+      background: var(--fg);
+      padding: var(--xxs);
+      width: 80%;
+      margin-left: 10%;
+      li {
+        margin-left: var(--xxs);
+      } 
     }
     a {
       color: var(--fontColor);
       font-weight: bold;
     }
+    pre {
+      color: white;
+      background: #222;
+    }
   }
 
-  .blog-post-content h2 {
-    font-family: var(--mono);
-    font-weight: normal;
-    letter-spacing: 0.8px;
-    font-size: var(--m);
-    text-transform: uppercase;
-    opacity: 1;
-    color: var(--accent);
-    margin-top: var(--xl);
-    margin-bottom: var(--xs);
-  }
 
-  .blog-post-content h3 {
-    font-family: var(--mono);
-    font-weight: normal;
-    font-size: var(--m);
-    background: var(--fontColor);
-    color: var(--fg);
-    text-align: center;
-    margin-top: var(--xl);
-    margin-bottom: var(--xxs);
-  }
-  pre {
-    color: white;
-    background: #222;
-  }
 `
 
 interface iBlogPost {
