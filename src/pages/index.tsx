@@ -13,7 +13,7 @@ const IndexPage: React.FC = () => {
   return (
   <Layout title="portfolio">
   <main>
-    <About />
+    {/* <About /> */}
     {/* <WorkSample /> */}
     <BlogList />
   </main>

@@ -23,7 +23,7 @@ const CSS_blog = `
 
   .blog-post-content {
     font-family: var(--mono);
-    font-size: var(--s);
+    font-size: var(--xs);
     line-height: 1.5;
     opacity: 1;
     .content-image {

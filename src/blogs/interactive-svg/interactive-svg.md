@@ -1,6 +1,6 @@
 ---
 slug: /interactive-svg
-title: Zoomable Point-and-Click Game with SVG, React Hooks and Greensock
+title: Interactive SVG
 featuredImage: "./chapter-one-scene.png"
 order: 1
 ---

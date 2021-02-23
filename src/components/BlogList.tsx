@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Image, { FluidObject } from "gatsby-image"
+import Image, { FixedObject, } from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
 /** @jsx jsx */
@@ -18,7 +18,7 @@ interface iBlogCard {
       order: number
       featuredImage: {
         childImageSharp: {
-          fluid: FluidObject
+          fixed: FixedObject
         }
       }
     }
@@ -27,6 +27,7 @@ interface iBlogCard {
 
 const CSS_blogList = `
   display: flex;
+  flex-wrap: wrap;
   padding-bottom: 1rem;
   padding-left: 12.5%;
   padding-right: 25%;
@@ -36,38 +37,37 @@ const CSS_blogList = `
   }
 `
 const CSS_card = `
-width: 250px;
+--size: 15rem;
+width: var(--size);
 a {
   text-decoration: none;
   color: inherit;
 }
 :hover   {
   cursor: pointer;
-  filter: invert(1);
+  filter: brightness(0.8);
   h2 {
-    filter: invert(1);
     background: var(--fontColor);
     color: var(--bg);
   }
 }
-margin-bottom: var(--xxl);
+margin-bottom: var(--m);
 margin-right: var(--m);
 
 h2 {
   font-size: var(--s);
   font-family: var(--sans);
   font-weight: normal;
-  margin-top: var(--xxs);
   background-color: var(--fg);
   width: fit-content;
-  padding: var(--xxs);
 }
 .imageWrapper {
-  width: 250px;
-  height: 250px;
+  width: var(--size);
+  height: var(--size);
 }
 img {
-  max-height: 250px;
+  max-width: var(--size);
+  max-height: var(--size);
 }
 ` 
 const Card:React.FC<{blog: iBlogCard}> = ({ blog }) => {
@@ -80,7 +80,7 @@ const Card:React.FC<{blog: iBlogCard}> = ({ blog }) => {
       <div className="imageWrapper">
       {blog.node.frontmatter.featuredImage &&
         <Image
-          fluid={blog.node.frontmatter.featuredImage.childImageSharp.fluid}
+          fixed={blog.node.frontmatter.featuredImage.childImageSharp.fixed}
           alt={blog.node.frontmatter.title}
         />      
       }
@@ -106,8 +106,8 @@ const BlogList: React.FC = () => {
               order
               featuredImage {
                 childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
+                  fixed {
+                    ...GatsbyImageSharpFixed
                   }
                 }
               }

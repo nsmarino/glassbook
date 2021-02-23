@@ -7,9 +7,11 @@ html {
   font-size: 16px;
 
 /* CSS Variables */
-  --bg: hsl(236,100%,95%);
+  --bg: white;
+  /* --bg: hsl(236,100%,95%); */
   --bg-dark: hsl(236, 100%, 86%);
-  --fg: hsl(236, 100%, 97%);
+  --fg: white;
+  /* --fg: hsl(236, 100%, 97%); */
   --stripes: repeating-linear-gradient(
     90deg
     , var(--bg), var(--bg) 6px, rgba(0,0,0,0.5) 7px); 
@@ -38,10 +40,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: var(--stripes);
-  background-attachment: fixed;
+  background: var(--bg);
+  /* background-attachment: fixed;
   background-position: center center;
-  background-size: cover; 
+  background-size: cover;  */
   min-height: 100vh;
   color: var(--fontColor);
   font-family: var(--sans);
